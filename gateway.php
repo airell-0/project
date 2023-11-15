@@ -51,7 +51,7 @@
       $out["message"] = 'Parameter Not Found!';
     } else {
       if ($cluster != ''){
-        $exchange .= $company .'_'. $engines;
+        $exchange .= '_'. $engines;
         $service  .= '_'. $cluster;
       }
       if ($console != ''){

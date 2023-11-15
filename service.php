@@ -13,7 +13,7 @@
     $service  = company .'_'. engines;
     $location = 'service/'. company .'/'. engines;
     if (cluster != ''){
-      $exchange .= company .'_'. engines;
+      $exchange .= '_'. engines;
       $service  .= '_'. cluster;
       $location .= '/'. cluster;
     }
