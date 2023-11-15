@@ -1,0 +1,24 @@
+CREATE FUNCTION [dbo].[sf_iso_byte](
+  @text AS varchar(100) = ''
+) RETURNS nvarchar(max) AS BEGIN
+  DECLARE @flag int
+  SELECT  @flag = LEN(@text)
+  IF @flag = 1 BEGIN
+     SELECT @text = CASE @text
+       WHEN '0' THEN '0000' WHEN '1' THEN '0001' WHEN '2' THEN '0010' WHEN '3' THEN '0011'
+       WHEN '4' THEN '0100' WHEN '5' THEN '0101' WHEN '6' THEN '0110' WHEN '7' THEN '0111'
+       WHEN '8' THEN '1000' WHEN '9' THEN '1001' WHEN 'A' THEN '1010' WHEN 'B' THEN '1011'
+       WHEN 'C' THEN '1100' WHEN 'D' THEN '1101' WHEN 'E' THEN '1110' WHEN 'F' THEN '1111'
+       ELSE '' END
+  END ELSE IF @flag = 4 BEGIN
+     SELECT @text = CASE @text
+       WHEN '0000' THEN '0' WHEN '0001' THEN '1' WHEN '0010' THEN '2' WHEN '0011' THEN '3'
+       WHEN '0100' THEN '4' WHEN '0101' THEN '5' WHEN '0110' THEN '6' WHEN '0111' THEN '7'
+       WHEN '1000' THEN '8' WHEN '1001' THEN '9' WHEN '1010' THEN 'A' WHEN '1011' THEN 'B'
+       WHEN '1100' THEN 'C' WHEN '1101' THEN 'D' WHEN '1110' THEN 'E' WHEN '1111' THEN 'F'
+       ELSE '' END
+  END ELSE BEGIN
+     SELECT @text = ''
+  END
+  RETURN @text
+END;

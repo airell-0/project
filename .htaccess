@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  IndexIgnore */*
+  RewriteEngine On
+  RewriteCond $1 !^(gateway\.php|favicon\.ico|robots\.txt)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  Options All -Indexes
+</IfModule>

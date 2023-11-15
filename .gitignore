@@ -1,0 +1,10 @@
+.vscode/
+assets/vendor/
+assets/vendor/composer.bat
+assets/vendor/composer.json
+assets/vendor/composer.lock
+locker/
+mssql/portal.mdf
+mssql/portal.ldf
+elastic.json
+web.config
